@@ -1,0 +1,10 @@
+{
+	"compagnons" : [
+		{
+			"id" : 0,
+			"espece" : "Chien",
+			"prix" : 500,
+			"imageUrl" : "images/chien3.png"
+		}
+	]
+}
