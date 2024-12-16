@@ -1,0 +1,40 @@
+{
+    "objets": [
+        {
+            "id": 0,
+            "nom": "Ballon",
+            "prix": 15,
+            "niveau": 5,
+            "type": "JOUET",
+            "detail": "jouet",
+            "imageUrl": "placeholder"
+        },
+        {
+            "id": 1,
+            "nom": "T\u00e9l\u00e9phone",
+            "prix": 20,
+            "niveau": 6,
+            "type": "JOUET",
+            "detail": "jouet",
+            "imageUrl": "placeholder"
+        },
+        {
+            "id": 2,
+            "nom": "Sushi",
+            "prix": 14,
+            "niveau": 13,
+            "type": "NOURRITURE",
+            "detail": "nourriture",
+            "imageUrl": "placeholder"
+        },
+        {
+            "id": 3,
+            "nom": "Steak",
+            "prix": 20,
+            "niveau": 18,
+            "type": "NOURRITURE",
+            "detail": "nourriture",
+            "imageUrl": "placeholder"
+        }
+    ]
+}
