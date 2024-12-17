@@ -2,38 +2,38 @@
     "objets": [
         {
             "id": 0,
-            "nom": "Ballon",
+            "nom": "Ballon[Ball]",
             "prix": 15,
             "niveau": 5,
             "type": "JOUET",
-            "detail": "jouet",
+            "detail": "Un ballon de foot ordinaire[An ordinary soccer ball]",
             "imageUrl": "placeholder"
         },
         {
             "id": 1,
-            "nom": "T\u00e9l\u00e9phone",
+            "nom": "T\u00e9l\u00e9phone[Phone]",
             "prix": 20,
             "niveau": 6,
             "type": "JOUET",
-            "detail": "jouet",
+            "detail": "Un faux téléphone qui fait du bruit[A fake phone that makes noise]",
             "imageUrl": "placeholder"
         },
         {
             "id": 2,
-            "nom": "Sushi",
+            "nom": "Sushi[Sushi]",
             "prix": 14,
             "niveau": 13,
             "type": "NOURRITURE",
-            "detail": "nourriture",
+            "detail": "Un sushi au saumon[A salmon sushi]",
             "imageUrl": "placeholder"
         },
         {
             "id": 3,
-            "nom": "Steak",
+            "nom": "Steak[Steak]",
             "prix": 20,
             "niveau": 18,
             "type": "NOURRITURE",
-            "detail": "nourriture",
+            "detail": "Un steak de boeuf de 500g[A 500g beef steak]",
             "imageUrl": "placeholder"
         }
     ]
