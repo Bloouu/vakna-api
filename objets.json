@@ -2,38 +2,62 @@
     "objets": [
         {
             "id": 0,
-            "nom": "Ballon[Ball]",
+            "nom": {
+                "fr": "Ballon",
+                "en": "Ball"
+            },
             "prix": 15,
             "niveau": 5,
             "type": "JOUET",
-            "detail": "Un ballon de foot ordinaire[An ordinary soccer ball]",
+            "detail": {
+                "fr": "Un ballon de foot ordinaire",
+                "en": "An ordinary soccer ball"
+            },
             "imageUrl": "placeholder"
         },
         {
             "id": 1,
-            "nom": "T\u00e9l\u00e9phone[Phone]",
+            "nom": {
+                "fr": "T\u00e9l\u00e9phone",
+                "en": "Phone"
+            },
             "prix": 20,
             "niveau": 6,
             "type": "JOUET",
-            "detail": "Un faux téléphone qui fait du bruit[A fake phone that makes noise]",
+            "detail": {
+                "fr": "Un faux téléphone qui fait du bruit",
+                "en": "A fake phone that makes noise"
+            },
             "imageUrl": "placeholder"
         },
         {
             "id": 2,
-            "nom": "Sushi[Sushi]",
+            "nom": {
+                "fr": "Sushi",
+                "en": "Sushi"
+            },
             "prix": 14,
             "niveau": 13,
             "type": "NOURRITURE",
-            "detail": "Un sushi au saumon[A salmon sushi]",
+            "detail": {
+                "fr": "Un sushi au saumon",
+                "en": "A salmon sushi"
+            },
             "imageUrl": "placeholder"
         },
         {
             "id": 3,
-            "nom": "Steak[Steak]",
+            "nom": {
+                "fr": "Steak",
+                "en": "Steak"
+            },
             "prix": 20,
             "niveau": 18,
             "type": "NOURRITURE",
-            "detail": "Un steak de boeuf de 500g[A 500g beef steak]",
+            "detail": {
+                "fr": "Un steak de boeuf de 500g",
+                "en": "A 500g beef steak"
+            },
             "imageUrl": "placeholder"
         }
     ]
