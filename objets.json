@@ -13,7 +13,7 @@
                 "fr": "Un ballon de foot ordinaire",
                 "en": "An ordinary soccer ball"
             },
-            "imageUrl": "placeholder"
+            "imageUrl": "images/ballon.png"
         },
         {
             "id": 1,
@@ -25,10 +25,10 @@
             "niveau": 6,
             "type": "JOUET",
             "detail": {
-                "fr": "Un faux téléphone qui fait du bruit",
+                "fr": "Un faux t\u00e9l\u00e9phone qui fait du bruit",
                 "en": "A fake phone that makes noise"
             },
-            "imageUrl": "placeholder"
+            "imageUrl": "images/telephone.png"
         },
         {
             "id": 2,
@@ -43,7 +43,7 @@
                 "fr": "Un sushi au saumon",
                 "en": "A salmon sushi"
             },
-            "imageUrl": "placeholder"
+            "imageUrl": "images/sushi.png"
         },
         {
             "id": 3,
@@ -58,7 +58,22 @@
                 "fr": "Un steak de boeuf de 500g",
                 "en": "A 500g beef steak"
             },
-            "imageUrl": "placeholder"
+            "imageUrl": "images/steak.png"
+        },
+        {
+            "id": 4,
+            "nom": {
+                "fr": "Cheeseburger",
+                "en": "Cheeseburger"
+            },
+            "prix": "15",
+            "niveau": "10",
+            "type": "NOURRITURE",
+            "detail": {
+                "fr": "C'est un burger avec du cheese",
+                "en": "She cheese on my burger"
+            },
+            "imageUrl": "gourmand.png"
         }
     ]
 }

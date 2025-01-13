@@ -2,6 +2,7 @@
 header("Content-Type: application/json");
 
 define("TYPES_VALIDES", ["JOUET", "NOURRITURE"]);
+define("UPLOAD_DIR", "images/");
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
@@ -63,15 +64,24 @@ function getObjet(int $id) : void {
 
 function createObjet(): void {
     $json = json_decode(file_get_contents("objets.json"), true); // Charger le fichier JSON actuel
-    $body = json_decode(file_get_contents("php://input"), true); // Charger le corps de la requête
+    $body = $_POST; // Charger le corps de la requête
     $errors = [];
 
-    // Vérification du champ "nom"
-    if (!array_key_exists("nom", $body)) {
-        $errors[] = "Pas de nom dans le corps de la requête";
+    // Vérification du champ "nom[fr]"
+    if (!isset($body["nom"]["fr"])) {
+        $errors[] = "Pas de nom français dans le corps de la requête";
     } else {
-        if (empty($body["nom"])) {
-            $errors[] = "Nom vide dans le corps de la requête";
+        if (empty($body["nom"]["fr"])) {
+            $errors[] = "Nom français vide dans le corps de la requête";
+        }
+    }
+
+    // Vérification du champ "nom[en]"
+    if (!isset($body["nom"]["en"])) {
+        $errors[] = "Pas de nom anglais dans le corps de la requête";
+    } else {
+        if (empty($body["nom"]["en"])) {
+            $errors[] = "Nom anglais vide dans le corps de la requête";
         }
     }
 
@@ -102,12 +112,21 @@ function createObjet(): void {
         }
     }
 
-    // Vérification du champ "detail"
-    if (!array_key_exists("detail", $body)) {
-        $errors[] = "Pas de détail dans le corps de la requête";
+    // Vérification du champ "detail[fr]"
+    if (!isset($body["detail"]["fr"])) {
+        $errors[] = "Pas de detail français dans le corps de la requête";
     } else {
-        if (empty($body["detail"])) {
-            $errors[] = "Le détail ne peut pas être vide";
+        if (empty($body["detail"]["fr"])) {
+            $errors[] = "Nom français vide dans le corps de la requête";
+        }
+    }
+
+    // Vérification du champ "detail[en]"
+    if (!isset($body["detail"]["en"])) {
+        $errors[] = "Pas de detail anglais dans le corps de la requête";
+    } else {
+        if (empty($body["detail"]["en"])) {
+            $errors[] = "Nom anglais vide dans le corps de la requête";
         }
     }
 
@@ -118,6 +137,11 @@ function createObjet(): void {
         if (empty($body["imageUrl"])) {
             $errors[] = "L'URL de l'image ne peut pas être vide";
         }
+    }
+
+    $fichierResponse = uploadFichier();
+    if ($fichierResponse != true) {
+        $errors[] = $fichierResponse;
     }
 
     // Vérification des erreurs
@@ -141,6 +165,38 @@ function createObjet(): void {
     }
 }
 
+function uploadFichier(): string|bool {
+    if (isset($_FILES['image'])) {
+        $file = $_FILES['image'];
+
+        // Vérifications de base
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            return "Erreur d'upload de fichier";
+        }
+
+        // Valider le type de fichier (ex. : JPEG, PNG)
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (!in_array($file['type'], $allowedTypes)) {
+            return "Type de fichier non autorisé";
+        }
+
+        // Vérifier que le fichier n'existe pas déjà
+        if (file_exists(UPLOAD_DIR .$file["name"])) {
+            return "Fichier avec ce nom déjà existant";
+        }
+
+        // Déplacer le fichier uploadé vers le dossier cible
+        $targetPath = UPLOAD_DIR . $file["name"];
+        if (!move_uploaded_file($file['tmp_name'], $targetPath)) {
+            return "Erreur lors du déplacement du fichier";
+        }
+
+        // Répondre avec succès et fournir l'URL du fichier
+        return true;
+    } else {
+        return 'Aucun fichier reçu';
+    }
+}
 
 // Mettre à jour une tâche existante (PATCh)
 function updateObjet($id) {
@@ -150,7 +206,7 @@ function updateObjet($id) {
         http_response_code(404);
         echo "Objet avec l'id $id introuvable";
     } else {
-        $body = json_decode(file_get_contents("php://input"), true); // Charger le corps de la requête
+        $body = $_POST; // Charger le corps de la requête
         $errors = [];
         $arrayId = getArrayId($json["objets"], $id);
         
