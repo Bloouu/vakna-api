@@ -2,7 +2,7 @@
 header("Content-Type: application/json");
 
 define("TYPES_VALIDES", ["JOUET", "NOURRITURE"]);
-define("UPLOAD_DIR", "images/");
+define("UPLOAD_DIR", "images/objets/");
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
@@ -67,75 +67,16 @@ function createObjet(): void {
     $body = $_POST; // Charger le corps de la requête
     $errors = [];
 
-    // Vérification du champ "nom[fr]"
-    if (!isset($body["nom"]["fr"])) {
-        $errors[] = "Pas de nom français dans le corps de la requête";
-    } else {
-        if (empty($body["nom"]["fr"])) {
-            $errors[] = "Nom français vide dans le corps de la requête";
-        }
-    }
+    // Vérification des champs obligatoires
+    $requiredFields = [
+        "nom",
+        "detail",
+        "imageUrl"
+    ];
 
-    // Vérification du champ "nom[en]"
-    if (!isset($body["nom"]["en"])) {
-        $errors[] = "Pas de nom anglais dans le corps de la requête";
-    } else {
-        if (empty($body["nom"]["en"])) {
-            $errors[] = "Nom anglais vide dans le corps de la requête";
-        }
-    }
-
-    // Vérification du champ "prix"
-    if (!array_key_exists("prix", $body)) {
-        $errors[] = "Pas de prix dans le corps de la requête";
-    } else {
-        if (!is_numeric($body["prix"]) || $body["prix"] <= 0) {
-            $errors[] = "Le prix doit être un nombre positif";
-        }
-    }
-
-    // Vérification du champ "niveau"
-    if (!array_key_exists("niveau", $body)) {
-        $errors[] = "Pas de niveau dans le corps de la requête";
-    } else {
-        if (!is_numeric($body["niveau"]) || $body["niveau"] < 0) {
-            $errors[] = "Le niveau doit être un nombre positif";
-        }
-    }
-
-    // Vérification du champ "type"
-    if (!array_key_exists("type", $body)) {
-        $errors[] = "Pas de type dans le corps de la requête";
-    } else {
-        if (!in_array($body["type"], TYPES_VALIDES)) {
-            $errors[] = "Type invalide. Les types valides sont : " . implode(", ", TYPES_VALIDES);
-        }
-    }
-
-    // Vérification du champ "detail[fr]"
-    if (!isset($body["detail"]["fr"])) {
-        $errors[] = "Pas de detail français dans le corps de la requête";
-    } else {
-        if (empty($body["detail"]["fr"])) {
-            $errors[] = "Nom français vide dans le corps de la requête";
-        }
-    }
-
-    // Vérification du champ "detail[en]"
-    if (!isset($body["detail"]["en"])) {
-        $errors[] = "Pas de detail anglais dans le corps de la requête";
-    } else {
-        if (empty($body["detail"]["en"])) {
-            $errors[] = "Nom anglais vide dans le corps de la requête";
-        }
-    }
-
-    // Vérification du champ "imageUrl"
-    if (!array_key_exists("imageUrl", $body)) {
-        $errors[] = "Pas d'URL d'image dans le corps de la requête";
-    } else {
-        if (empty($body["imageUrl"])) {
-            $errors[] = "L'URL de l'image ne peut pas être vide";
+    foreach ($requiredFields as $field) {
+        if (!isset($body[$field]) || empty($body[$field])) {
+            $errors[] = "Champ $field manquant ou vide";
         }
     }
 

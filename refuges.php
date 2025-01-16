@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json");
 
-define("UPLOAD_DIR", "images/");
+define("UPLOAD_DIR", "images/refuges/");
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
@@ -83,13 +83,8 @@ function createRefuge(): void {
     ];
 
     foreach ($requiredFields as $field) {
-        if (!isset($body[$field])) {
-            $errors[] = "Pas de $field dans le corps de la requête";
-            continue;            
-        } else {
-            if (!isset($body[$field]) || empty($body[$field])) {
-                $errors[] = "Champ $field manquant ou vide";
-            }
+        if (!isset($body[$field]) || empty($body[$field])) {
+            $errors[] = "Champ $field manquant ou vide";
         }
     }
 
