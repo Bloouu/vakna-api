@@ -13,7 +13,7 @@
                 "fr": "Un ballon de foot ordinaire",
                 "en": "An ordinary soccer ball"
             },
-            "imageUrl": "images/ballon.png"
+            "imageUrl": "ballon.png"
         },
         {
             "id": 1,
@@ -28,7 +28,7 @@
                 "fr": "Un faux t\u00e9l\u00e9phone qui fait du bruit",
                 "en": "A fake phone that makes noise"
             },
-            "imageUrl": "images/telephone.png"
+            "imageUrl": "telephone.png"
         },
         {
             "id": 2,
@@ -43,7 +43,7 @@
                 "fr": "Un sushi au saumon",
                 "en": "A salmon sushi"
             },
-            "imageUrl": "images/sushi.png"
+            "imageUrl": "sushi.png"
         },
         {
             "id": 3,
@@ -58,7 +58,7 @@
                 "fr": "Un steak de boeuf de 500g",
                 "en": "A 500g beef steak"
             },
-            "imageUrl": "images/steak.png"
+            "imageUrl": "steak.png"
         },
         {
             "id": 4,
