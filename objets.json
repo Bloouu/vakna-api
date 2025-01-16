@@ -63,8 +63,8 @@
         {
             "id": 4,
             "nom": {
-                "fr": "Cheeseburger",
-                "en": "Cheeseburger"
+                "fr": "Burger",
+                "en": "Burger"
             },
             "prix": "15",
             "niveau": "10",

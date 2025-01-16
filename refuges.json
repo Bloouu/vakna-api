@@ -1,0 +1,10 @@
+{
+    "refuges": [
+        {
+            "id": 1,
+            "nom": "Cantine",
+            "detail": "Miam miam",
+            "imageUrl": "cantine.png"
+        }
+    ]
+}

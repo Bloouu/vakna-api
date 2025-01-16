@@ -52,7 +52,7 @@ function getAllObjets(): void {
 // Récupérer une tâche par ID (GET)
 function getObjet(int $id) : void {
     $json = json_decode(file_get_contents("objets.json"), true)["objets"];
-    for ($i=0; $i < count($json); $i++) { 
+    foreach ($json["refuges"] as $refuge) { 
         if ($json[$i]["id"] == $id) {
             echo json_encode($json[$i]);
             return;
@@ -270,7 +270,6 @@ function updateObjet($id) {
             echo json_encode($errors);
         } else {
             file_put_contents("objets.json", json_encode($json, JSON_PRETTY_PRINT)); // Sauvegarder le fichier JSON
-            array_unshift($body, ["id" => $id]);
             echo json_encode($body);
         }
     }
